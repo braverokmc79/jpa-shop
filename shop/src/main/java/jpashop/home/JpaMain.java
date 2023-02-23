@@ -30,7 +30,7 @@ public class JpaMain {
 					.getResultList();
 			
 			for(Member member : reuslt) {
-			//	System.out.println("member.name = " + member.getName());
+			
 			}
 			
 			
