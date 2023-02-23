@@ -31,5 +31,4 @@ public class Member {
 	private List<Order> orderList=new ArrayList<>();
 	
 	
-	
 }
