@@ -1,12 +1,12 @@
 package jpashop.home;
 
-import java.lang.reflect.Member;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import jpashop.home.domain.Order;
+import jpashop.home.domain.OrderItem;
 
 public class JpaMain {
 	public static void main(String[] args) {
@@ -20,18 +20,9 @@ public class JpaMain {
 			
 		try {
 			
-			/*수정 */
-			Member findMember  =em.find(Member.class, 1L);
-			//findMember.("JH");
-		
-			List<Member> reuslt=em.createQuery("select m from Member as m " , Member.class)
-					.setFirstResult(5)
-					.setMaxResults(8)
-					.getResultList();
+			Order order =new Order();
+			order.addOrderItem(new OrderItem());
 			
-			for(Member member : reuslt) {
-			
-			}
 			
 			
 			tx.commit();
