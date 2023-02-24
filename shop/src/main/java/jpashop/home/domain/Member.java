@@ -15,8 +15,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Member {
-
+public class Member extends BaseEntity {
+	
 	@Id @GeneratedValue
 	@Column(name="MEMBER_ID")
 	private Long id;
@@ -25,10 +25,6 @@ public class Member {
 	private String street;
 	private String zipcode;
 	
-	
-	//mappedBy 는 연관 관계의 주인은 누구? member
 	@OneToMany(mappedBy = "member")
 	private List<Order> orderList=new ArrayList<>();
-	
-	
 }

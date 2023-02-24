@@ -13,8 +13,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import lombok.Getter;
+
 @Entity
-public class Cartegory {
+@Getter
+public class Cartegory extends BaseEntity {
 	
 	@Id @GeneratedValue
 	@Column(name="CARTEGORY_ID")
@@ -29,13 +32,11 @@ public class Cartegory {
 	@OneToMany(mappedBy = "parent")
 	private List<Cartegory> child=new ArrayList<>();
 	
-	
 	@ManyToMany
 	//중간 테이블 생성
 	@JoinTable(name="CATEGORY_ITEM",
 			joinColumns = @JoinColumn(name="CATEGOYR_ID"),
 			inverseJoinColumns = @JoinColumn(name="ITEM_ID")
 		)
-	private List<Item> items=new ArrayList<>();
-	
+	private List<Item> items=new ArrayList<>();	
 }

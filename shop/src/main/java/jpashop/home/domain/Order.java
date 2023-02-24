@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name="ORDERS")  //ORDER DB 에서 예약어로 사용되는 경우 많아서 ORDERS 
-public class Order {
+public class Order  extends BaseEntity{
   
 	@Id @GeneratedValue
 	@Column(name="ORDER_ID")
@@ -32,18 +32,13 @@ public class Order {
 	@ManyToOne
 	@JoinColumn(name="MEMBER_ID")
 	private Member member;	
-	
-	
+
 	@OneToOne
 	@JoinColumn(name="DELIVERY_ID")
 	private Delivery delivery;
 	
-	
-	
 	@OneToMany(mappedBy = "order")
 	private List<OrderItem> orderItems=new ArrayList<>();
-	
-	
 	private LocalDateTime orderDate;
 	
 	//ORDINAL 숫자 타입으로 하면 순서가 꼬이므로 무저건 String 한다
@@ -55,7 +50,4 @@ public class Order {
 		orderItems.add(orderItem);
 		orderItem.setOrder(this);
 	}
-	
-	
-	
 }
