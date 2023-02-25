@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 
 import jpashop.home.domain.Book;
 
+
 public class JpaMain {
 	public static void main(String[] args) {
 		EntityManagerFactory emf=Persistence.createEntityManagerFactory("hello");
@@ -30,10 +31,9 @@ public class JpaMain {
 		}finally {
 			em.close();
 		}
-	
-		
 		emf.close();	
 	}
+	
 	
 	
 }
