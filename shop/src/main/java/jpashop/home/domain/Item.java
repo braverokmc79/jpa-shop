@@ -27,7 +27,7 @@ public abstract class Item extends BaseEntity{
 	private Long id;
 	
 	private String name;
-	private String price;
+	private int price;
 	private int stockQuantity;
 	
 	@ManyToMany(mappedBy = "items")
